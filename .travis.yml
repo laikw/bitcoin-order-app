@@ -19,6 +19,7 @@ before_script:
   - npm install -g now
 script:
   - ng build --prod --base-href https://laikw.github.io/bitcoin-order-app/
+  - ng lint
   
 deploy:
   provider: pages
@@ -30,4 +31,5 @@ deploy:
     branch: development
     
 after_success:
+ - npm audit fix
  - git push laikw:release
